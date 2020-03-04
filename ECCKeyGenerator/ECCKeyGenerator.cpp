@@ -79,8 +79,8 @@ int main()
 	EC_POINT_get_affine_coordinates(ecg, ecpEnd, xEnd, yEnd, ctx);
 	xCurrent = BN_dup(xStart);
 	EC_POINT_copy(ecpCurrent, ecpStart);
-	FILE* dataFile = fopen("publicKeys.kdb", "wb");
-	FILE* dataFileVisual = fopen("publicKeysVisual.txt", "w");
+	FILE* dataFile = fopen("database\\publicKeys.kdb", "wb");
+	FILE* dataFileVisual = fopen("database\\publicKeysVisual.txt", "w");
 	unsigned char bufKeyX[KEY_X_LEN + 10];
 	//cout << "the private key = " << BN_bn2hex(kCurrent) << endl;
 	//cout << "x of public key = " << BN_bn2hex(xCurrent) << endl;

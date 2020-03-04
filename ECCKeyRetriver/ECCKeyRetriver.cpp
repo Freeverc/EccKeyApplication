@@ -79,12 +79,12 @@ int main()
 	kCurrent = BN_dup(kStart);
 	EC_POINT_copy(ecpCurrent, ecpStart);
 	unsigned char bufKeyX[KEY_X_LEN + 10];
-	FILE* dataFile = fopen("publicKeys.kdb", "rb");
+	FILE* dataFile = fopen("database\\publicKeys.kdb", "rb");
 	//int ch = fgetc(dataFile);
 	//if (ch == EOF)
 	//	return 0;
-	FILE* searchFile = fopen("retriveKeys.kdb", "wb");
-	FILE* searchFileVisual = fopen("retriveKeys.kdb", "w");
+	FILE* searchFile = fopen("database\\retriveKeys.kdb", "wb");
+	FILE* searchFileVisual = fopen("database\\retriveKeys.txt", "w");
 	//cout << "the private key = " << BN_bn2hex(kCurrent) << endl;
 	//cout << "x of public key = " << BN_bn2hex(xCurrent) << endl;
 	//cout << "y of public key = " << BN_bn2hex(yCurrent) << endl;
@@ -183,6 +183,7 @@ int main()
 	EC_POINT_free(ecpEnd);
 	fclose(dataFile);
 	fclose(searchFile);
+	fclose(searchFileVisual);
 	tEnd = clock();
 	totaltime = (double)(tEnd - tStart) / CLOCKS_PER_SEC;
 	cout << "Database retriving used : " << totaltime << " seconds." << endl;

@@ -1,7 +1,5 @@
 ﻿  ECCKeyGenerator.cpp
 C:\Users\freeverc\source\repos\ECCKeyApp\ECCKeyGenerator\ECCKeyGenerator.cpp(40,6): warning C4101: “sucess”: 未引用的局部变量
   正在生成代码
-  Previous IPDB not found, fall back to full compilation.
-  All 110 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   已完成代码的生成
   ECCKeyGenerator.vcxproj -> C:\Users\freeverc\source\repos\ECCKeyApp\x64\Release\ECCKeyGenerator.exe
