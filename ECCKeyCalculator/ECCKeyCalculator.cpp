@@ -40,35 +40,55 @@ int main()
 		switch (op)
 		{
 		case'+':
-			cout << "Please input x cordinate of  Point 1 (in hex): " << endl;
+			cout << "please input X coordinate of Point 1 (in Hex):" << endl;
 			cin >> s;
 			BN_hex2bn(&x1, s.c_str());
-			cout << "Please input y cordinate of  Point 1 (in hex): " << endl;
+			EC_POINT_set_compressed_coordinates(ecg, ecp1, x1, 0, ctx);
+			EC_POINT_set_compressed_coordinates(ecg, ecp3, x1, 1, ctx);
+			EC_POINT_get_affine_coordinates(ecg, ecp1, x1, y1, ctx);
+			EC_POINT_get_affine_coordinates(ecg, ecp3, x1, y3, ctx);
+			cout << "y1 = " << BN_bn2hex(y1) << endl;
+			cout << "y2 = " << BN_bn2hex(y3) << endl;
+			cout << "please input Y coordinate of Point 1 (in Hex):" << endl;
 			cin >> s;
 			BN_hex2bn(&y1, s.c_str());
 			EC_POINT_set_affine_coordinates(ecg, ecp1, x1, y1, ctx);
-			
-			cout << "Please input x cordinate of  Point 2 (in hex): " << endl;
+
+			cout << "please input X coordinate of Point 2 (in Hex):" << endl;
 			cin >> s;
 			BN_hex2bn(&x2, s.c_str());
-			cout << "Please input y cordinate of  Point 2 (in hex): " << endl;
+			EC_POINT_set_compressed_coordinates(ecg, ecp2, x2, 0, ctx);
+			EC_POINT_set_compressed_coordinates(ecg, ecp3, x2, 1, ctx);
+			EC_POINT_get_affine_coordinates(ecg, ecp2, x2, y2, ctx);
+			EC_POINT_get_affine_coordinates(ecg, ecp3, x2, y3, ctx);
+			cout << "y1 = " << BN_bn2hex(y1) << endl;
+			cout << "y2 = " << BN_bn2hex(y3) << endl;
+			cout << "please input Y coordinate of Point 2 (in Hex):" << endl;
 			cin >> s;
 			BN_hex2bn(&y2, s.c_str());
 			EC_POINT_set_affine_coordinates(ecg, ecp2, x2, y2, ctx);
+
 			EC_POINT_add(ecg, ecp3, ecp1, ecp2, ctx);
 			break;
 		case'*':
 			cout << "Please input big number k (in hex): " << endl;
 			cin >> s;
 			BN_hex2bn(&x2, s.c_str());
-			
-			cout << "Please input x cordinate of  Point 1 (in hex): " << endl;
+
+			cout << "please input X coordinate of Point 1 (in Hex):" << endl;
 			cin >> s;
 			BN_hex2bn(&x1, s.c_str());
-			cout << "Please input y cordinate of  Point 1 (in hex): " << endl;
+			EC_POINT_set_compressed_coordinates(ecg, ecp1, x1, 0, ctx);
+			EC_POINT_set_compressed_coordinates(ecg, ecp3, x1, 1, ctx);
+			EC_POINT_get_affine_coordinates(ecg, ecp1, x1, y1, ctx);
+			EC_POINT_get_affine_coordinates(ecg, ecp3, x1, y3, ctx);
+			cout << "y1 = " << BN_bn2hex(y1) << endl;
+			cout << "y2 = " << BN_bn2hex(y3) << endl;
+			cout << "please input Y coordinate of Point 1 (in Hex):" << endl;
 			cin >> s;
 			BN_hex2bn(&y1, s.c_str());
 			EC_POINT_set_affine_coordinates(ecg, ecp1, x1, y1, ctx);
+			
 			EC_POINT_mul(ecg, ecp3, NULL, ecp1, x2, ctx);
 			break;
 		default:
